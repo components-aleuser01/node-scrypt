@@ -1,28 +1,27 @@
 /* 
-   pickparams.c
+ pickparams.c
 
-   Copyright (C) 2013 Barry Steyn (http://doctrina.org/Scrypt-Authentication-For-Node.html)
+ Copyright (C) 2013 Barry Steyn (http://doctrina.org/Scrypt-Authentication-For-Node.html)
 
-   This source code is provided 'as-is', without any express or implied
-   warranty. In no event will the author be held liable for any damages
-   arising from the use of this software.
+ This source code is provided 'as-is', without any express or implied
+ warranty. In no event will the author be held liable for any damages
+ arising from the use of this software.
 
-   Permission is granted to anyone to use this software for any purpose,
-   including commercial applications, and to alter it and redistribute it
-   freely, subject to the following restrictions:
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
 
-   1. The origin of this source code must not be misrepresented; you must not
-      claim that you wrote the original source code. If you use this source code
-      in a product, an acknowledgment in the product documentation would be
-      appreciated but is not required.
+ 1. The origin of this source code must not be misrepresented; you must not
+    claim that you wrote the original source code. If you use this source code
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
 
-   2. Altered source versions must be plainly marked as such, and must not be
-      misrepresented as being the original source code.
+ 2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original source code.
 
-   3. This notice may not be removed or altered from any source distribution.
+ 3. This notice may not be removed or altered from any source distribution.
 
-   Barry Steyn barry.steyn@gmail.com
-
+ Barry Steyn barry.steyn@gmail.com
 */
 
 #include <stdint.h>
@@ -40,7 +39,7 @@ int
 pickparams(int *logN, uint32_t *r, uint32_t *p, double maxtime, size_t maxmem, double maxmemfrac) {
     //Note: logN (as opposed to N) is calculated here. This is because it is compact (it can be represented by an int)
     //      and it is easy (and quick) to convert to N by right shifting bits. Most importantly, using logN only requires
-	//		32 bits to be stored. Seeing as it is embedded inside the hash, the smaller the better
+    //		  32 bits to be stored. Seeing as it is embedded inside the hash, the smaller the better
     size_t memlimit;
     double opps;
     double opslimit;
@@ -61,7 +60,7 @@ pickparams(int *logN, uint32_t *r, uint32_t *p, double maxtime, size_t maxmem, d
         opslimit = 32768;
 
     /* Set r to 8 */
-	*r = 8; // r is the underlying block size, Colin Percival defaults to 8 in his reference implementation
+    *r = 8; // r is the underlying block size, Colin Percival defaults to 8 in his reference implementation
 
     /*
     * The memory limit requires that 128Nr <= memlimit, while the CPU

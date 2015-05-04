@@ -58,6 +58,10 @@ void RegisterModule(Handle<Object> target) {
 	//Error Object
 	target->Set(NanNew<String>("errorObject"),
 		NanNew<FunctionTemplate>(MakeErrorObject)->GetFunction());
+
+	//Just a test
+	target->Set(NanNew<String>("test"),
+		NanNew<FunctionTemplate>(test)->GetFunction());
 }
 
 NODE_MODULE(scrypt, RegisterModule)
